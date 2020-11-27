@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zyq.learnjwt.mapper.UserMapper">
+    <select id="FindUserByEmail" parameterType="String" resultType="com.zyq.learnjwt.entity.User">
+        SELECT * FROM t_user WHERE email=#{email,jdbcType=VARCHAR}
+    </select>
+
+    <!--  注册  -->
+    <insert id="Register" parameterType="com.zyq.learnjwt.entity.User">
+        insert into t_user(id,name,password,email,sex) values(#{id,jdbcType=VARCHAR},#{name,jdbcType=VARCHAR},#{password,jdbcType=VARCHAR},#{email,jdbcType=VARCHAR},#{sex,jdbcType=VARCHAR})
+    </insert>
+</mapper>
